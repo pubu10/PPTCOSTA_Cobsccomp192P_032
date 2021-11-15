@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
     
     public var db: Firestore? //Property Injection
     
-    var uid : String = ""
+    var uid : String = " "
     
     override func viewDidLoad() {
         super.viewDidLoad()
