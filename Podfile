@@ -10,6 +10,10 @@ target 'PPTCOSTA_Cobsccomp192P_032' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseCore'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+
+
 
 
   target 'PPTCOSTA_Cobsccomp192P_032Tests' do

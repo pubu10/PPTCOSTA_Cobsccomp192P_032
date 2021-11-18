@@ -1,0 +1,6 @@
+framework module Pods_PPTCOSTA_Cobsccomp192P_032_PPTCOSTA_Cobsccomp192P_032UITests {
+  umbrella header "Pods-PPTCOSTA_Cobsccomp192P_032-PPTCOSTA_Cobsccomp192P_032UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

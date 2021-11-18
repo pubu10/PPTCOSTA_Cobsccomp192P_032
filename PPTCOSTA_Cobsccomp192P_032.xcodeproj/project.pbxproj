@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103C544D27461A5600E15178 /* AvailableBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C544C27461A5600E15178 /* AvailableBookingViewController.swift */; };
+		103C545327461B0500E15178 /* AvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C545227461B0500E15178 /* AvailableCell.swift */; };
+		103DC6AE2745627F009F6E0C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103DC6AC2745627F009F6E0C /* HomeViewController.swift */; };
+		103DC6B527457898009F6E0C /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103DC6B427457898009F6E0C /* MyCustomCell.swift */; };
 		10441B812740E42D00CEA612 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10441B802740E42D00CEA612 /* LoginViewController.swift */; };
 		10441B862740E89400CEA612 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10441B852740E89400CEA612 /* GoogleService-Info.plist */; };
 		10441B8B2740EC0400CEA612 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10441B8A2740EC0400CEA612 /* SignUpViewController.swift */; };
 		10441BB02741480A00CEA612 /* Entitys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10441BAF2741480A00CEA612 /* Entitys.swift */; };
+		10B95F3D2742D9C900788508 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B95F3C2742D9C900788508 /* SettingsViewController.swift */; };
 		10CEFC0F27401851007FA8E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFC0E27401851007FA8E6 /* AppDelegate.swift */; };
 		10CEFC1127401851007FA8E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFC1027401851007FA8E6 /* SceneDelegate.swift */; };
 		10CEFC1327401851007FA8E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFC1227401851007FA8E6 /* ViewController.swift */; };
@@ -42,10 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		103C544C27461A5600E15178 /* AvailableBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableBookingViewController.swift; sourceTree = "<group>"; };
+		103C545227461B0500E15178 /* AvailableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableCell.swift; sourceTree = "<group>"; };
+		103DC6AC2745627F009F6E0C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		103DC6B427457898009F6E0C /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		10441B802740E42D00CEA612 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		10441B852740E89400CEA612 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10441B8A2740EC0400CEA612 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10441BAF2741480A00CEA612 /* Entitys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitys.swift; sourceTree = "<group>"; };
+		10B95F3C2742D9C900788508 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		10CEFC0B27401851007FA8E6 /* PPTCOSTA_Cobsccomp192P_032.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPTCOSTA_Cobsccomp192P_032.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10CEFC0E27401851007FA8E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10CEFC1027401851007FA8E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +122,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		103DC6B32745786A009F6E0C /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				103DC6B427457898009F6E0C /* MyCustomCell.swift */,
+				103C545227461B0500E15178 /* AvailableCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
 		10441B7F2740E40800CEA612 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +144,9 @@
 			children = (
 				10441B802740E42D00CEA612 /* LoginViewController.swift */,
 				10441B8A2740EC0400CEA612 /* SignUpViewController.swift */,
+				10B95F3C2742D9C900788508 /* SettingsViewController.swift */,
+				103DC6AC2745627F009F6E0C /* HomeViewController.swift */,
+				103C544C27461A5600E15178 /* AvailableBookingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -162,6 +184,7 @@
 		10CEFC0D27401851007FA8E6 /* PPTCOSTA_Cobsccomp192P_032 */ = {
 			isa = PBXGroup;
 			children = (
+				103DC6B32745786A009F6E0C /* TableCells */,
 				10441BCD27417A2700CEA612 /* Controller */,
 				10441B7F2740E40800CEA612 /* View */,
 				10548A512740268200A96263 /* Model */,
@@ -443,11 +466,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103DC6B527457898009F6E0C /* MyCustomCell.swift in Sources */,
 				10441B812740E42D00CEA612 /* LoginViewController.swift in Sources */,
+				103C544D27461A5600E15178 /* AvailableBookingViewController.swift in Sources */,
 				10CEFC1327401851007FA8E6 /* ViewController.swift in Sources */,
+				10B95F3D2742D9C900788508 /* SettingsViewController.swift in Sources */,
+				103DC6AE2745627F009F6E0C /* HomeViewController.swift in Sources */,
 				10441B8B2740EC0400CEA612 /* SignUpViewController.swift in Sources */,
 				10CEFC0F27401851007FA8E6 /* AppDelegate.swift in Sources */,
 				10441BB02741480A00CEA612 /* Entitys.swift in Sources */,
+				103C545327461B0500E15178 /* AvailableCell.swift in Sources */,
 				10CEFC1127401851007FA8E6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

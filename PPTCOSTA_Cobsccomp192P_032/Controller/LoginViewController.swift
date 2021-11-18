@@ -81,26 +81,18 @@ class LoginViewController: UIViewController {
             
             {
                 
-                
-                let alert = UIAlertController(title: "Alert Success", message: msg, preferredStyle: UIAlertController.Style.alert)
-                
-                
-                
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let newViewController = storyBoard.instantiateViewController(withIdentifier: "tbBarController") as! UITabBarController
+                newViewController.modalPresentationStyle = .fullScreen
+                        self.present(newViewController, animated: true, completion: nil)
                 
                 
-                
-                self.present(alert, animated: true, completion: nil)
-                
-                
-                
-                
-                
+            //    let alert = UIAlertController(title: "Alert Success", message: msg, preferredStyle: UIAlertController.Style.alert)
+             //   alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+             //   self.present(alert, animated: true, completion: nil)
                 
                 
             }
-            
-            
             
             else
             
@@ -137,7 +129,7 @@ class LoginViewController: UIViewController {
         
     }
     
-   
+    
     
     
     
