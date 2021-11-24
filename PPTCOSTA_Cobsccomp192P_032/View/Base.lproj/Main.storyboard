@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-64" y="-406"/>
+            <point key="canvasLocation" x="161" y="-713"/>
         </scene>
         <!--Home-->
         <scene sceneID="GgR-ik-dsm">
@@ -239,6 +239,7 @@
                                                     <state key="normal" title="Reserve"/>
                                                     <connections>
                                                         <action selector="btnReserveClick:" destination="dd3-Hm-5v9" eventType="touchUpInside" id="Xr5-w3-DH9"/>
+                                                        <segue destination="gwj-0X-MeV" kind="show" id="uTu-32-dGP"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdD-DG-FWT">
@@ -273,6 +274,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SL0-ZP-1Ne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2530.434782608696" y="978.34821428571422"/>
+        </scene>
+        <!--Reserve View Controller-->
+        <scene sceneID="MkZ-WB-5qr">
+            <objects>
+                <viewController id="gwj-0X-MeV" customClass="ReserveViewController" customModule="PPTCOSTA_Cobsccomp192P_032" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eUj-OO-wuG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aXN-nj-6Uu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FNZ-OC-xi4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F55-hM-amB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3741" y="889"/>
         </scene>
         <!--Scaner View Controller-->
         <scene sceneID="ZiB-uf-Myh">
@@ -310,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Lq-8y-6gl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3682.608695652174" y="963.61607142857133"/>
+            <point key="canvasLocation" x="3741" y="1787"/>
         </scene>
         <!--ImageQR View Controller-->
         <scene sceneID="B6l-Wc-hNi">
@@ -338,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ze5-Zj-yoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4614" y="964"/>
+            <point key="canvasLocation" x="4697" y="1835"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tCj-CH-1mm">

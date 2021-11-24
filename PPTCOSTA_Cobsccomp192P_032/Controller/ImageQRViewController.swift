@@ -18,7 +18,6 @@ class ImageQRViewController: UIViewController, UIImagePickerControllerDelegate,U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let type = UIImagePickerController.SourceType.photoLibrary
         guard UIImagePickerController.isSourceTypeAvailable(type) else { return }
         let picker = UIImagePickerController()
@@ -26,12 +25,6 @@ class ImageQRViewController: UIViewController, UIImagePickerControllerDelegate,U
         //picker.mediaTypes = [kUTTypeImage as String]
         picker.delegate = self
         self.present(picker, animated: true)
-        
-    }
-    
-    var dictionaryRepresentation: [String: Any] {
-        return [
-            "RegistrationID" : ""]
         
     }
     
@@ -48,7 +41,7 @@ class ImageQRViewController: UIViewController, UIImagePickerControllerDelegate,U
         let qrCodeLink = features.reduce("") { $0 + ($1.messageString ?? "") }
         
         
-        self.db.collection("Slots").document(qrCodeLink).setData(dictionaryRepresentation) { err in
+        self.db.collection("Slots").document(qrCodeLink).setData([ "SlotStatus": "3" ], merge: true) { err in
             if ( err == nil )
             {
                 self.ShowMessage(msg:"Success.");
@@ -58,8 +51,6 @@ class ImageQRViewController: UIViewController, UIImagePickerControllerDelegate,U
             {
                 self.ShowMessage(msg:"Failed.");
             }
-            
-            
         }
     }
     

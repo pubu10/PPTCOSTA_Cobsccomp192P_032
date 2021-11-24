@@ -34,14 +34,12 @@ class QRScanerViewController: UIViewController ,AVCaptureMetadataOutputObjectsDe
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
         
         let captureDevice = deviceDiscoverySession.devices.first
-        
         if(captureDevice == nil)
         {
             lblErrorDescription.isHidden = false
             btnOpenGallary.isHidden = false
             return
         }
-        
 
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
@@ -103,6 +101,9 @@ class QRScanerViewController: UIViewController ,AVCaptureMetadataOutputObjectsDe
             qrCodeFrameView?.frame = barCodeObject!.bounds
             if metadataObj.stringValue != nil {
                 print(metadataObj.stringValue)
+                
+             
+                
             }
         }
     }

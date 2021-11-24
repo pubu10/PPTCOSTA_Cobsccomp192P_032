@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		100F029C274EC162000EE751 /* ReserveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100F029B274EC162000EE751 /* ReserveViewController.swift */; };
 		103C544D27461A5600E15178 /* AvailableBookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C544C27461A5600E15178 /* AvailableBookingViewController.swift */; };
 		103C545327461B0500E15178 /* AvailableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C545227461B0500E15178 /* AvailableCell.swift */; };
 		103DC6AE2745627F009F6E0C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103DC6AC2745627F009F6E0C /* HomeViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		100F029B274EC162000EE751 /* ReserveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveViewController.swift; sourceTree = "<group>"; };
 		103C544C27461A5600E15178 /* AvailableBookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableBookingViewController.swift; sourceTree = "<group>"; };
 		103C545227461B0500E15178 /* AvailableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableCell.swift; sourceTree = "<group>"; };
 		103DC6AC2745627F009F6E0C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				103C544C27461A5600E15178 /* AvailableBookingViewController.swift */,
 				10969FDE274657BB005368B2 /* QRScanerViewController.swift */,
 				10B6132B274C6D3D00E3A57D /* ImageQRViewController.swift */,
+				100F029B274EC162000EE751 /* ReserveViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				103DC6AE2745627F009F6E0C /* HomeViewController.swift in Sources */,
 				10B6132C274C6D3D00E3A57D /* ImageQRViewController.swift in Sources */,
 				10441B8B2740EC0400CEA612 /* SignUpViewController.swift in Sources */,
+				100F029C274EC162000EE751 /* ReserveViewController.swift in Sources */,
 				10CEFC0F27401851007FA8E6 /* AppDelegate.swift in Sources */,
 				10441BB02741480A00CEA612 /* Entitys.swift in Sources */,
 				103C545327461B0500E15178 /* AvailableCell.swift in Sources */,

@@ -13,10 +13,14 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
     
     public var db: Firestore?
     
+    
     @IBOutlet weak var tableView: UITableView!
     
     // These are the colors of the square views in our table view cells.
     // In a real project you might use UIImages.
+    static var typeProperty = ""
+    
+    var SlotID = [String]()
     var SlotName = [String]()
     var SlotStatus = [String]()
     var VehicalNo = [String]()
@@ -40,6 +44,7 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
+                    self.SlotID.append(document.get("SlotID") as! String)
                     self.SlotName.append(document.get("SlotName") as! String)
                     self.SlotStatus.append(document.get("SlotStatus") as! String)
                     self.VehicalNo.append(document.get("VehicalNo") as! String)
@@ -65,15 +70,25 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         
         let cell:AvailableCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! AvailableCell
         
+        
         cell.SlotName.text = self.SlotName[indexPath.row]
         cell.SlotStatus.text = self.SlotStatus[indexPath.row]
         //cell.VehicalNo.text = self.VehicalNo[indexPath.row]
         
-        cell.btnReserve.tag = indexPath.row;
+        cell.btnReserve.tag = Int(self.SlotID[indexPath.row])! ;
         cell.btnReserve.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
-        cell.btnBooking.tag = indexPath.row;
+        cell.btnBooking.tag = Int(self.SlotID[indexPath.row])!;
         cell.btnBooking.addTarget(self, action: #selector(buttonTapped2), for: .touchUpInside)
+        
+        if(self.SlotStatus[indexPath.row] == "2")
+        {
+            cell.btnReserve.isHidden = true
+        }
+        else if(self.SlotStatus[indexPath.row] == "3")
+        {
+            cell.btnBooking.isHidden = true
+        }
         
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 8
@@ -89,7 +104,7 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
         self.present(alrt, animated: true)
         
-    
+        AvailableBookingViewController.typeProperty = String(_sender.tag);
         
     }
     

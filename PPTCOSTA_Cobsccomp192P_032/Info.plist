@@ -4,6 +4,10 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>we need to access your cam to read the QR code</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location Access Request</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location Access Request</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
