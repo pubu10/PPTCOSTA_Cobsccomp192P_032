@@ -8,8 +8,9 @@
 import UIKit
 import Firebase
 
+//https://stevenpcurtis.medium.com/handle-button-presses-in-customuitableviewcells-without-tags-48941542447a
 class AvailableBookingViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
-
+    
     public var db: Firestore?
     
     @IBOutlet weak var tableView: UITableView!
@@ -41,13 +42,12 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
                 for document in querySnapshot!.documents {
                     self.SlotName.append(document.get("SlotName") as! String)
                     self.SlotStatus.append(document.get("SlotStatus") as! String)
-                  //   self.VehicalNo.append(document.get("VehicalNo") as! String)
+                    self.VehicalNo.append(document.get("VehicalNo") as! String)
                     self.tableView.reloadData()
                 }
                 
             }
         }
-        
     }
     
     // number of rows in table view
@@ -69,6 +69,12 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         cell.SlotStatus.text = self.SlotStatus[indexPath.row]
         //cell.VehicalNo.text = self.VehicalNo[indexPath.row]
         
+        cell.btnReserve.tag = indexPath.row;
+        cell.btnReserve.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        cell.btnBooking.tag = indexPath.row;
+        cell.btnBooking.addTarget(self, action: #selector(buttonTapped2), for: .touchUpInside)
+        
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
@@ -77,8 +83,29 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         
     }
     
+    @objc func buttonTapped(_sender: UIButton)
+    {
+        let alrt = UIAlertController(title: "test", message: "test", preferredStyle: .alert)
+        alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
+        self.present(alrt, animated: true)
+        
+    
+        
+    }
+    
+    @objc func buttonTapped2(_sender: UIButton)
+    {
+        let alrt = UIAlertController(title: "test2", message: "test2", preferredStyle: .alert)
+        alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
+        self.present(alrt, animated: true)
+        
+    }
+    
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
+    
 }
+
+

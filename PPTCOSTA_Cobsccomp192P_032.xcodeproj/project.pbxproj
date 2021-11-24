@@ -15,6 +15,8 @@
 		10441B862740E89400CEA612 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10441B852740E89400CEA612 /* GoogleService-Info.plist */; };
 		10441B8B2740EC0400CEA612 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10441B8A2740EC0400CEA612 /* SignUpViewController.swift */; };
 		10441BB02741480A00CEA612 /* Entitys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10441BAF2741480A00CEA612 /* Entitys.swift */; };
+		10969FDF274657BB005368B2 /* QRScanerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10969FDE274657BB005368B2 /* QRScanerViewController.swift */; };
+		10B6132C274C6D3D00E3A57D /* ImageQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B6132B274C6D3D00E3A57D /* ImageQRViewController.swift */; };
 		10B95F3D2742D9C900788508 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B95F3C2742D9C900788508 /* SettingsViewController.swift */; };
 		10CEFC0F27401851007FA8E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFC0E27401851007FA8E6 /* AppDelegate.swift */; };
 		10CEFC1127401851007FA8E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CEFC1027401851007FA8E6 /* SceneDelegate.swift */; };
@@ -55,6 +57,8 @@
 		10441B852740E89400CEA612 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10441B8A2740EC0400CEA612 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		10441BAF2741480A00CEA612 /* Entitys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitys.swift; sourceTree = "<group>"; };
+		10969FDE274657BB005368B2 /* QRScanerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanerViewController.swift; sourceTree = "<group>"; };
+		10B6132B274C6D3D00E3A57D /* ImageQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageQRViewController.swift; sourceTree = "<group>"; };
 		10B95F3C2742D9C900788508 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		10CEFC0B27401851007FA8E6 /* PPTCOSTA_Cobsccomp192P_032.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPTCOSTA_Cobsccomp192P_032.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10CEFC0E27401851007FA8E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				10B95F3C2742D9C900788508 /* SettingsViewController.swift */,
 				103DC6AC2745627F009F6E0C /* HomeViewController.swift */,
 				103C544C27461A5600E15178 /* AvailableBookingViewController.swift */,
+				10969FDE274657BB005368B2 /* QRScanerViewController.swift */,
+				10B6132B274C6D3D00E3A57D /* ImageQRViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -467,11 +473,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				103DC6B527457898009F6E0C /* MyCustomCell.swift in Sources */,
+				10969FDF274657BB005368B2 /* QRScanerViewController.swift in Sources */,
 				10441B812740E42D00CEA612 /* LoginViewController.swift in Sources */,
 				103C544D27461A5600E15178 /* AvailableBookingViewController.swift in Sources */,
 				10CEFC1327401851007FA8E6 /* ViewController.swift in Sources */,
 				10B95F3D2742D9C900788508 /* SettingsViewController.swift in Sources */,
 				103DC6AE2745627F009F6E0C /* HomeViewController.swift in Sources */,
+				10B6132C274C6D3D00E3A57D /* ImageQRViewController.swift in Sources */,
 				10441B8B2740EC0400CEA612 /* SignUpViewController.swift in Sources */,
 				10CEFC0F27401851007FA8E6 /* AppDelegate.swift in Sources */,
 				10441BB02741480A00CEA612 /* Entitys.swift in Sources */,

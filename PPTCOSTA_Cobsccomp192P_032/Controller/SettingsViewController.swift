@@ -32,9 +32,9 @@ class SettingsViewController: UIViewController {
         let docRef = self.db?.collection("User").document(userID!)
         docRef!.getDocument(source: .cache) { (document, error) in
           if let document = document {
-           // let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
             
-            //self.txtName.text = "pubudu"//String(document.get("Name") as! String)
+           // let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+           //self.txtName.text = "pubudu"//String(document.get("Name") as! String)
            // self.txtEmal.text = "w"//String(document.get("Email") as! String)
            // self.txtVehicalNo.text = "w"//String(document.get("VehicalNo") as! String)
             

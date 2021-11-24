@@ -10,13 +10,13 @@ import Firebase
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var txtReqNo: UITextField!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtNicNo: UITextField!
     @IBOutlet weak var txtVehicalNo: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtRePassword: UITextField!
     @IBOutlet weak var txtEmal: UITextField!
+    @IBOutlet weak var txtRegNo: UITextField!
     
     @IBOutlet weak var chk: UISwitch!
     
@@ -28,10 +28,10 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         self.db = Firestore .firestore()
         
-        // Do any additional setup after loading the view.
+        GetNextRegId();
+       
+        
     }
-    
-    
     
     @IBAction func btnSignUp_Click(_ sender: Any) {
         
@@ -50,7 +50,7 @@ class SignUpViewController: UIViewController {
                 }
                 
                 self.uid = (authResult?.user.uid)! as String
-               
+                
                 if(self.CreateCustomerAccount())
                 {
                     self.ShowMessage(msg:"Success");
@@ -69,6 +69,7 @@ class SignUpViewController: UIViewController {
     
     var dictionaryRepresentation: [String: Any] {
         return [
+            "RegistrationID" : txtRegNo.text!,
             "UserId" : uid,
             "Name" : txtName.text!,
             "NicNo" : txtNicNo.text!,
@@ -80,15 +81,35 @@ class SignUpViewController: UIViewController {
     
     func CreateCustomerAccount() -> Bool {
         var chk : Bool = false
-        
         self.db?.collection("User").document(uid).setData(dictionaryRepresentation) { err in
             if ( err == nil )
             {
                 chk = true
             }
         }
-        
         return chk
+    }
+    
+    func GetNextRegId() -> Void {
+        
+        var MaxId = 0
+        
+        let citiesRef = db!.collection("User")
+        citiesRef.order(by: "RegistrationID", descending: true).limit(to: 1).getDocuments(){ (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    MaxId  =   Int(document.get("RegistrationID") as! String) ?? 0
+                   
+                }
+                MaxId = (MaxId + 1)
+                self.txtRegNo.text = String(MaxId)
+                self.txtEmal.becomeFirstResponder()
+            }
+            
+        }
+       
     }
     
     func ShowMessage(msg : String) -> Void {
