@@ -18,7 +18,8 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
     
     // These are the colors of the square views in our table view cells.
     // In a real project you might use UIImages.
-    static var typeProperty = ""
+    static var SlotIDProperty = ""
+    static var BtnTypeProperty = ""
     
     var SlotID = [String]()
     var SlotName = [String]()
@@ -86,18 +87,31 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         //cell.VehicalNo.text = self.VehicalNo[indexPath.row]
         
         cell.btnReserve.tag = Int(self.SlotID[indexPath.row])! ;
-        cell.btnReserve.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        cell.btnReserve.addTarget(self, action: #selector(btnReserveTapped), for: .touchUpInside)
         
         cell.btnBooking.tag = Int(self.SlotID[indexPath.row])!;
-        cell.btnBooking.addTarget(self, action: #selector(buttonTapped2), for: .touchUpInside)
+        cell.btnBooking.addTarget(self, action: #selector(btnBookingTapped), for: .touchUpInside)
         
-        if(self.SlotStatus[indexPath.row] == "2")
+        cell.btnCancel.tag = Int(self.SlotID[indexPath.row])!;
+        cell.btnCancel.addTarget(self, action: #selector(btCancelTapped), for: .touchUpInside)
+        
+         if(self.SlotStatus[indexPath.row] == "1")
+        {
+            cell.btnReserve.isHidden = false
+            cell.btnBooking.isHidden = false
+            cell.btnCancel.isHidden = true
+        }
+        else if(self.SlotStatus[indexPath.row] == "2")
         {
             cell.btnReserve.isHidden = true
+            cell.btnBooking.isHidden = false
+            cell.btnCancel.isHidden = true
         }
         else if(self.SlotStatus[indexPath.row] == "3")
         {
+            cell.btnReserve.isHidden = true
             cell.btnBooking.isHidden = true
+            cell.btnCancel.isHidden = false
         }
         
         cell.layer.borderWidth = 2
@@ -108,21 +122,35 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         
     }
     
-    @objc func buttonTapped(_sender: UIButton)
+    @objc func btnReserveTapped(_sender: UIButton)
     {
         let alrt = UIAlertController(title: "test", message: "test", preferredStyle: .alert)
         alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
         self.present(alrt, animated: true)
         
-        AvailableBookingViewController.typeProperty = String(_sender.tag);
+        AvailableBookingViewController.SlotIDProperty = String(_sender.tag);
         
     }
     
-    @objc func buttonTapped2(_sender: UIButton)
+    @objc func btnBookingTapped(_sender: UIButton)
     {
         let alrt = UIAlertController(title: "test2", message: "test2", preferredStyle: .alert)
         alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
         self.present(alrt, animated: true)
+        
+        AvailableBookingViewController.SlotIDProperty = String(_sender.tag);
+        AvailableBookingViewController.BtnTypeProperty = "Booking";
+        
+    }
+    
+    @objc func btCancelTapped(_sender: UIButton)
+    {
+        let alrt = UIAlertController(title: "test2", message: "test2", preferredStyle: .alert)
+        alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
+        self.present(alrt, animated: true)
+        
+        AvailableBookingViewController.SlotIDProperty = String(_sender.tag);
+        AvailableBookingViewController.BtnTypeProperty = "Cancel";
         
     }
     

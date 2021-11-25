@@ -15,8 +15,22 @@ class ImageQRViewController: UIViewController, UIImagePickerControllerDelegate,U
     var imagePicker = UIImagePickerController()
     var db = Firestore .firestore()
     
+    
+    @IBOutlet weak var ImgQR: UIImageView!
+    @IBOutlet weak var btnReTake: UIButton!
+    @IBOutlet weak var btnConform: UIButton!
+    
+    public var QRText : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.db = Firestore .firestore()
+        LoadImagePopUp()
+        
+    }
+    
+    func LoadImagePopUp() -> Void {
         
         let type = UIImagePickerController.SourceType.photoLibrary
         guard UIImagePickerController.isSourceTypeAvailable(type) else { return }
@@ -39,19 +53,9 @@ class ImageQRViewController: UIViewController, UIImagePickerControllerDelegate,U
               let features = detector.features(in: ciImage) as? [CIQRCodeFeature] else { return }
         
         let qrCodeLink = features.reduce("") { $0 + ($1.messageString ?? "") }
-        
-        
-        self.db.collection("Slots").document(qrCodeLink).setData([ "SlotStatus": "3" ], merge: true) { err in
-            if ( err == nil )
-            {
-                self.ShowMessage(msg:"Success.");
-                picker.dismiss(animated: true, completion: nil)
-            }
-            else
-            {
-                self.ShowMessage(msg:"Failed.");
-            }
-        }
+        QRText = qrCodeLink
+        ImgQR.image = pickedImage
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
@@ -59,6 +63,81 @@ class ImageQRViewController: UIViewController, UIImagePickerControllerDelegate,U
         print("Canceled.")
         
     }
+    
+    @IBAction func btnRetake_Click(_ sender: Any) {
+        
+        LoadImagePopUp()
+    }
+    
+    @IBAction func btnConfrm_Click(_ sender: Any) {
+        
+        if(AvailableBookingViewController.SlotIDProperty != QRText)
+        {
+            self.ShowMessage(msg:"QR Code not Match with the Selected Slot.");
+            return
+        }
+        
+        
+        if(AvailableBookingViewController.BtnTypeProperty == "Booking" )
+        {
+            let date = Date()
+            let calendar = Calendar.current
+            
+            let hour = String(calendar.component(.hour, from: date))
+            let minutes = String(calendar.component(.minute, from: date))
+            
+            var time : String = ""
+            time = hour + " hr " + minutes + " min "
+            
+            let userID = Auth.auth().currentUser?.uid
+            let docRef = self.db.collection("User").document(userID!)
+            docRef.getDocument(source: .cache) { (document, error) in
+                if let document = document {
+                    _ = document.data().map(String.init(describing:)) ?? "nil"
+                    let vNo : String = String(document.get("VehicalNo") as! String)
+                    self.db.collection("Slots").document(self.QRText).setData([ "AssignUser": userID ?? "" , "SlotTime" : time , "VehicalNo" : vNo , "SlotStatus": "3" ], merge: true) { err in
+                        if ( err == nil )
+                        {
+                            self.ShowMessage(msg:"Booking Successflly.");
+                        }
+                        else
+                        {
+                            self.ShowMessage(msg:"Failed.");
+                        }
+                    }
+                    
+                } else {
+                    print("Document does not exist in cache")
+                }
+            }
+            
+        }
+        else  if(AvailableBookingViewController.BtnTypeProperty == "Cancel" )
+        {
+            self.db.collection("Slots").document(self.QRText).setData([ "AssignUser": "" , "SlotTime" : "" , "VehicalNo" : "" , "SlotStatus": "1" ], merge: true) { err in
+                if ( err == nil )
+                {
+                    self.ShowMessage(msg:"Canceled Successflly.");
+                }
+                else
+                {
+                    self.ShowMessage(msg:"Failed.");
+                }
+            }
+            
+        }
+        
+        
+        
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "tbBarController") as! UITabBarController
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
+        
+    }
+    
+    
     
     func ShowMessage(msg : String) -> Void {
         let alert = UIAlertController(title: "Info", message: msg, preferredStyle: UIAlertController.Style.alert)

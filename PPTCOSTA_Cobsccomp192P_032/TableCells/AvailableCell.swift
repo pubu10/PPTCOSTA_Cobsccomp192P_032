@@ -14,11 +14,15 @@ public class AvailableCell: UITableViewCell
     @IBOutlet weak var SlotStatus: UILabel!
     @IBOutlet weak var btnReserve: UIButton!
     @IBOutlet weak var btnBooking: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
     
     @IBAction func btnReserveClick(_ sender: Any) {
     }
     
     @IBAction func btnBookingClick(_ sender: Any) {
+    }
+
+    @IBAction func btnCancel_Click(_ sender: Any) {
     }
     
 }
