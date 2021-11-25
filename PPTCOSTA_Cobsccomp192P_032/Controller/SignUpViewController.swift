@@ -10,15 +10,23 @@ import Firebase
 
 class SignUpViewController: UIViewController {
     
+    // @IBOutlet weak var txtName: UITextField!
+   // @IBOutlet weak var txtNicNo: UITextField!
+   // @IBOutlet weak var txtVehicalNo: UITextField!
+   // @IBOutlet weak var txtPassword: UITextField!
+   // @IBOutlet weak var txtRePassword: UITextField!
+   // @IBOutlet weak var txtEmal: UITextField!
+   // @IBOutlet weak var txtRegNo: UITextField!
+    
+    @IBOutlet weak var txtRegNo: UITextField!
     @IBOutlet weak var txtName: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtNicNo: UITextField!
     @IBOutlet weak var txtVehicalNo: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtRePassword: UITextField!
-    @IBOutlet weak var txtEmal: UITextField!
-    @IBOutlet weak var txtRegNo: UITextField!
-    
     @IBOutlet weak var chk: UISwitch!
+    @IBOutlet weak var btnSignUp: UIButton!
     
     public var db: Firestore? //Property Injection
     
@@ -37,7 +45,7 @@ class SignUpViewController: UIViewController {
         
         if(chk.isOn)
         {
-            Auth.auth().createUser(withEmail: txtEmal.text!, password: txtPassword.text!) {  authResult, error in
+            Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) {  authResult, error in
                 
                 if(authResult != nil)
                 {
@@ -73,7 +81,7 @@ class SignUpViewController: UIViewController {
             "UserId" : uid,
             "Name" : txtName.text!,
             "NicNo" : txtNicNo.text!,
-            "Email" : txtEmal.text!,
+            "Email" : txtEmail.text!,
             "VehicalNo" : txtVehicalNo.text!,
             "Password" : txtPassword.text!,
         ]
@@ -105,7 +113,7 @@ class SignUpViewController: UIViewController {
                 }
                 MaxId = (MaxId + 1)
                 self.txtRegNo.text = String(MaxId)
-                self.txtEmal.becomeFirstResponder()
+                self.txtEmail.becomeFirstResponder()
             }
             
         }

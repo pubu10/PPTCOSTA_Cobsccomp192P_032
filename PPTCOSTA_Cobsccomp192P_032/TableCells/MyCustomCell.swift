@@ -13,6 +13,7 @@ public class MyCustomCell : UITableViewCell
     @IBOutlet weak var SlotName: UILabel!
     @IBOutlet weak var SlotStatus: UILabel!
     @IBOutlet weak var VehicalNo: UILabel!
-    
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var lblType: UILabel!
     
 }

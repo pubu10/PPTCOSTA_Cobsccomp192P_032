@@ -18,10 +18,16 @@ class LoginViewController: UIViewController {
     var msg : String = ""
     var status : Bool = false
     
+    
     //@StateObject private var test = UserViewModel()
+    
+    @IBOutlet weak var btnLogin: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        btnLogin.layer.cornerRadius = 20
+        btnLogin.clipsToBounds = true
         
     }
     
@@ -30,6 +36,9 @@ class LoginViewController: UIViewController {
         var status : Bool = false
         
         var msg : String = ""
+        
+        
+        
         
         Auth.auth().signIn(withEmail: txtEmail.text!, password: txtPassword.text!) { (authResult, error) in
             

@@ -13,16 +13,30 @@ class SettingsViewController: UIViewController {
 
     public var db: Firestore?
     
- 
+    @IBOutlet weak var txtRegNo: UITextField!
+    
     @IBOutlet weak var txtName: UITextField!
+    
+    @IBOutlet weak var txtEmail: UITextField!
+    
+    @IBOutlet weak var txtNicNo: UITextField!
+    
+    @IBOutlet weak var txtVehicalNo: UITextField!
+    
+    @IBOutlet weak var btnLogOut: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
      
+        btnLogOut.layer.cornerRadius = 20
+        btnLogOut.clipsToBounds = true
+        
         self.db = Firestore .firestore()
-        //self.txtName!.text = "pubudu"//String(document.get("Name") as! String)
         GetSettings()
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    @IBAction func btnLogout_Click(_ sender: Any) {
     }
     
     
@@ -33,11 +47,13 @@ class SettingsViewController: UIViewController {
         docRef!.getDocument(source: .cache) { (document, error) in
           if let document = document {
             
-           // let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-           //self.txtName.text = "pubudu"//String(document.get("Name") as! String)
-           // self.txtEmal.text = "w"//String(document.get("Email") as! String)
-           // self.txtVehicalNo.text = "w"//String(document.get("VehicalNo") as! String)
+            let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
             
+            self.txtName.text = String(document.get("Name") as! String)
+            self.txtEmail.text = String(document.get("Email") as! String)
+            self.txtVehicalNo.text = String(document.get("VehicalNo") as! String)
+            self.txtNicNo.text = String(document.get("NicNo") as! String)
+            self.txtRegNo.text =  "test" //String(document.get("RegistrationID") as! String)
             
           } else {
             print("Document does not exist in cache")

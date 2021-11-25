@@ -25,19 +25,31 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
     var SlotStatus = [String]()
     var VehicalNo = [String]()
     
-    let colors = [UIColor.blue, UIColor.yellow, UIColor.magenta, UIColor.red, UIColor.brown]
-    
     // Don't forget to enter this in IB also
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 5
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLoadSetup()
+    }
+    
+    
+    func viewLoadSetup(){
         
         tableView.delegate = self
         tableView.dataSource = self
         
         self.db = Firestore .firestore()
+        
+        SlotID = [String]()
+        SlotName = [String]()
+        SlotStatus = [String]()
+        VehicalNo = [String]()
         
         self.db?.collection("Slots").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -50,7 +62,6 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
                     self.VehicalNo.append(document.get("VehicalNo") as! String)
                     self.tableView.reloadData()
                 }
-                
             }
         }
     }
@@ -69,7 +80,6 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:AvailableCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! AvailableCell
-        
         
         cell.SlotName.text = self.SlotName[indexPath.row]
         cell.SlotStatus.text = self.SlotStatus[indexPath.row]

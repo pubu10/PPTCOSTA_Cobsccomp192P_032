@@ -49,9 +49,7 @@ class ReserveViewController: UIViewController, CLLocationManagerDelegate {
         }
         else
         {
-           
             var ID : String = AvailableBookingViewController.typeProperty;
-            
             
             // Update one field, creating the document if it does not exist.
             self.db.collection("Slots").document(ID).setData([ "SlotStatus": "2" ], merge: true) { err in
@@ -64,9 +62,16 @@ class ReserveViewController: UIViewController, CLLocationManagerDelegate {
                     self.ShowMessage(msg:"Failed.");
                 }
             }
+            
+            
         }
         
-        return
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "tbBarController") as! UITabBarController
+        newViewController.modalPresentationStyle = .fullScreen
+                self.present(newViewController, animated: true, completion: nil)
+        
+      
     }
     
     func ShowMessage(msg : String) -> Void {
