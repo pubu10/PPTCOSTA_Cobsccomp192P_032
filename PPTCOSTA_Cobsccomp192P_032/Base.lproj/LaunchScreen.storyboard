@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +12,47 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NIBM1" translatesAutoresizingMaskIntoConstraints="NO" id="zzS-Pe-W6A">
+                                <rect key="frame" x="121" y="789" width="172" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="PvQ-ZP-5Qy"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image 3 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="SLD-zp-RZj">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIBM PARKING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iud-uE-OcW">
+                                <rect key="frame" x="111" y="520" width="192" height="33"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SLD-zp-RZj" firstAttribute="centerX" secondItem="zzS-Pe-W6A" secondAttribute="centerX" id="5MK-MJ-U5H"/>
+                            <constraint firstItem="zzS-Pe-W6A" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="PoK-5C-I6J"/>
+                            <constraint firstItem="SLD-zp-RZj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="340" id="QQQ-2F-dzG"/>
+                            <constraint firstItem="iud-uE-OcW" firstAttribute="top" secondItem="SLD-zp-RZj" secondAttribute="bottom" constant="8" symbolic="YES" id="SDG-NO-5mm"/>
+                            <constraint firstItem="SLD-zp-RZj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="XQ2-ye-Lok"/>
+                            <constraint firstItem="zzS-Pe-W6A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="121" id="g52-Za-1WR"/>
+                            <constraint firstItem="iud-uE-OcW" firstAttribute="centerX" secondItem="SLD-zp-RZj" secondAttribute="centerX" id="noY-e6-l6F"/>
+                            <constraint firstItem="SLD-zp-RZj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="pk3-Ow-7pG"/>
+                            <constraint firstItem="SLD-zp-RZj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rKu-QY-VeH"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NIBM1" width="317" height="159"/>
+        <image name="image 3 (1)" width="918" height="918"/>
+    </resources>
 </document>
