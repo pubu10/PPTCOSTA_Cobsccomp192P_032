@@ -15,6 +15,8 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var txtStringVehicalNo: UITextField!
+    @IBOutlet weak var txtStringRegNo: UITextField!
     
     // These are the colors of the square views in our table view cells.
     // In a real project you might use UIImages.
@@ -24,8 +26,7 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
     var SlotID = [String]()
     var SlotName = [String]()
     var SlotStatus = [String]()
-    var VehicalNo = [String]()
-    
+     
     // Don't forget to enter this in IB also
     let cellReuseIdentifier = "cell"
     let cellSpacingHeight: CGFloat = 5
@@ -50,7 +51,22 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         SlotID = [String]()
         SlotName = [String]()
         SlotStatus = [String]()
-        VehicalNo = [String]()
+         
+        let userID = Auth.auth().currentUser?.uid
+        let docRef = self.db?.collection("User").document(userID!)
+        docRef!.getDocument(source: .cache) { (document, error) in
+          if let document = document {
+            
+            let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+            
+            self.txtStringVehicalNo.text = String(document.get("VehicalNo") as! String)
+            self.txtStringRegNo.text =  "2"//String(document.get("RegistrationID") as! String)
+            
+          } else {
+            print("Document does not exist in cache")
+          }
+        }
+
         
         self.db?.collection("Slots").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -60,7 +76,7 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
                     self.SlotID.append(document.get("SlotID") as! String)
                     self.SlotName.append(document.get("SlotName") as! String)
                     self.SlotStatus.append(document.get("SlotStatus") as! String)
-                    self.VehicalNo.append(document.get("VehicalNo") as! String)
+                    
                     self.tableView.reloadData()
                 }
             }
@@ -83,8 +99,7 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
         let cell:AvailableCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as! AvailableCell
         
         cell.SlotName.text = self.SlotName[indexPath.row]
-        cell.SlotStatus.text = self.SlotStatus[indexPath.row]
-        //cell.VehicalNo.text = self.VehicalNo[indexPath.row]
+        cell.Status.text = self.SlotStatus[indexPath.row]
         
         cell.btnReserve.tag = Int(self.SlotID[indexPath.row])! ;
         cell.btnReserve.addTarget(self, action: #selector(btnReserveTapped), for: .touchUpInside)
@@ -124,34 +139,19 @@ class AvailableBookingViewController: UIViewController , UITableViewDelegate, UI
     
     @objc func btnReserveTapped(_sender: UIButton)
     {
-        let alrt = UIAlertController(title: "test", message: "test", preferredStyle: .alert)
-        alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
-        self.present(alrt, animated: true)
-        
         AvailableBookingViewController.SlotIDProperty = String(_sender.tag);
-        
     }
     
     @objc func btnBookingTapped(_sender: UIButton)
     {
-        let alrt = UIAlertController(title: "test2", message: "test2", preferredStyle: .alert)
-        alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
-        self.present(alrt, animated: true)
-        
         AvailableBookingViewController.SlotIDProperty = String(_sender.tag);
         AvailableBookingViewController.BtnTypeProperty = "Booking";
-        
     }
     
     @objc func btCancelTapped(_sender: UIButton)
     {
-        let alrt = UIAlertController(title: "test2", message: "test2", preferredStyle: .alert)
-        alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
-        self.present(alrt, animated: true)
-        
         AvailableBookingViewController.SlotIDProperty = String(_sender.tag);
         AvailableBookingViewController.BtnTypeProperty = "Cancel";
-        
     }
     
     // method to run when table view cell is tapped

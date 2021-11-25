@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var txtNicNo: UITextField!
     
     @IBOutlet weak var txtVehicalNo: UITextField!
-    
+
     @IBOutlet weak var btnLogOut: UIButton!
     
     override func viewDidLoad() {
@@ -37,6 +37,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func btnLogout_Click(_ sender: Any) {
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "homeTbBarController") as! UITabBarController
+        newViewController.modalPresentationStyle = .fullScreen
+        self.present(newViewController, animated: true, completion: nil)
+        
+        
     }
     
     
